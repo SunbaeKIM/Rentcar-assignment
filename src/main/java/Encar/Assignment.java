@@ -20,14 +20,14 @@ public class Assignment {
         BeanUtils.copyProperties(this, rentAccepted);
         rentAccepted.setRentId(this.getRentId());
         rentAccepted.setAgencyname(this.getAgencyName());
-        rentAccepted.setStatus("예약접수완료");
+        rentAccepted.setStatus("RentAccepted");
         rentAccepted.publishAfterCommit();
     }
     @PostRemove
     public void onPostRemove(){
         RentCanceled rentCanceled = new RentCanceled();
         BeanUtils.copyProperties(this, rentCanceled);
-        rentCanceled.setStatus("예약취소완료");
+        rentCanceled.setStatus("RentCanceled");
         rentCanceled.publishAfterCommit();
     }
 
